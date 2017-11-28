@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  gitlab:
+    build:
+      context: ./docker
+    container_name: gitlab
+    restart: always
+    volumes:
+      - ./config:/etc/gitlab
+      - ./logs:/var/log/gitlab
+      - ./data:/var/opt/gitlab
+    ports:
+      - "40122:22"
+      - "40108:40108"
+    hostname: '<ホスト名>'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://<IPアドレス>:40108'
+        gitlab_rails['gitlab_shell_ssh_port'] = 40122
+        gitlab_rails['gitlab_email_enabled'] = false
