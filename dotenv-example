@@ -1,0 +1,10 @@
+# ホスト名
+hostname=example.com
+# HTTPポート番号
+HTTP_PORT=40108
+# SSHポート番号
+SSH_PORT=40122
+# 外部からアクセスする場合のURL
+external_url=http://example.com:40108
+# データの保存先ディレクトリ
+DATA_DIR=./data

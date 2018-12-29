@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  gitlab:
+    image: gitlab/gitlab-ce:11.5.5-ce.0
+    container_name: gitlab
+    hostname: "${hostname}"
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./config:/etc/gitlab
+      - ./logs:/var/log/gitlab
+      - ${DATA_DIR}:/var/opt/gitlab
+    ports:
+      - "${SSH_PORT}:22"
+      - "${HTTP_PORT}:${HTTP_PORT}"
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url '${external_url}'
+        gitlab_rails['gitlab_shell_ssh_port'] = ${SSH_PORT}
+        gitlab_rails['gitlab_email_enabled'] = false
+        gitlab_rails['time_zone'] = 'Asia/Tokyo'
+
+  gitlab-runner:
+    image: gitlab/gitlab-runner:latest
+    container_name : gitlab-runner
+    hostname: gitlab-shared-runner
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./config-runner:/etc/gitlab-runner
+

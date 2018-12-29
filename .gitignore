@@ -1,8 +1,6 @@
-docker-compose.yml
-docker/user.rb
-docker/user.rb.old
-
+.env
 config
+config-runner
 data
 logs
 
