@@ -10,15 +10,18 @@
 - `docker-compose up -d` で起動。
 - ログイン。
     - 初期パスワードは `root` / `5iveL!fe`
-- Admin Area > Overview > Runnersを開き、URLとトークンを控える。
-- `docker-compose exec gitlab-runner gitlab-runner register` を実行
-    - 入力例:
-    - gitlab-ci coordinator URL: `http://gitlab:40108/`
-    - gitlab-ci token: `GitLabの画面に表示されているもの`
-    - gitlab-ci description: `(任意)`
-    - gitlab-ci tags: `(入力しない)`
-    - executor: `docker`
-    - default Docker image: `ruby:2.1`
+- Admin Area > Overview > Runnersを開きURLとトークンを控える。
+- 以下のコマンドを実行 (http://XXXX/ と XXXXのところを置き換える)
+
+    docker-compose exec gitlab-runner gitlab-runner register \
+        --non-interactive \
+        --env http_proxy=$http_proxy \
+        --env https_proxy=$https_proxy \
+        --name gitlab-shared-runner \
+        --url http://XXXX/ \
+        --registration-token XXXX \
+        --executor docker \
+        --docker-image python:latest
 
 ## 起動
 
