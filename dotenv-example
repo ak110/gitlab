@@ -1,14 +1,14 @@
-# ホスト名
-hostname=example.com
+# コンテナのホスト名
+HOSTNAME=example.com
+# 外部からアクセスする場合のホスト名
+EXTERNAL_HOSTNAME=example.com
 # HTTPポート番号
 HTTP_PORT=40108
-# SSHポート番号
-SSH_PORT=40122
-# 外部からアクセスする場合のURL
-external_url=http://example.com:40108
-# データの保存先ディレクトリ
-DATA_DIR=./data
-# MattermostのURL
-mattermost_external_url=http://example.com:40109
 # Mattermostのポート番号
 MATTERMOST_PORT=40109
+# Container Registryのポート番号
+REGISTRY_PORT=40110
+# SSHポート番号
+SSH_PORT=40122
+# データの保存先ディレクトリ
+DATA_DIR=./data
