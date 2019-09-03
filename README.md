@@ -21,6 +21,7 @@
         --url http://XXXX/ \
         --registration-token XXXX \
         --executor docker \
+        --docker-privileged \
         --docker-image python:latest
 
 ## 起動
