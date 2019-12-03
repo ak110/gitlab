@@ -24,6 +24,10 @@ services:
         gitlab_rails['gitlab_shell_ssh_port'] = ${SSH_PORT}
         gitlab_rails['gitlab_email_enabled'] = false
         gitlab_rails['time_zone'] = 'Asia/Tokyo'
+    logging:
+      options:
+        max-size: "1m"
+        max-file: "10"
 
   gitlab-runner:
     image: gitlab/gitlab-runner:latest
@@ -34,4 +38,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock
       - ./config-runner:/etc/gitlab-runner
-
+    logging:
+      options:
+        max-size: "1m"
+        max-file: "10"
