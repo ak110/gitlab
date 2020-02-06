@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  gitlab-runner:
+    image: gitlab/gitlab-runner:latest
+    hostname: "${HOSTNAME}"
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./config:/etc/gitlab-runner
+    logging:
+      options:
+        max-size: "1m"
+        max-file: "10"
