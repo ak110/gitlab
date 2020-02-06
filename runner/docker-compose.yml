@@ -3,7 +3,6 @@ version: "3"
 services:
   gitlab-runner:
     image: gitlab/gitlab-runner:latest
-    hostname: "${HOSTNAME}"
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
