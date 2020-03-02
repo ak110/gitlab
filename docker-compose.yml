@@ -18,9 +18,9 @@ services:
       - "${REGISTRY_PORT}:${REGISTRY_PORT}"
     environment:
       GITLAB_OMNIBUS_CONFIG: |
-        external_url 'http://${EXTERNAL_HOSTNAME}:${HTTP_PORT}/'
-        mattermost_external_url 'http://${EXTERNAL_HOSTNAME}:${MATTERMOST_PORT}/'
-        registry_external_url 'http://${EXTERNAL_HOSTNAME}:${REGISTRY_PORT}/'
+        external_url 'http://${EXTERNAL_HOSTNAME}:${HTTP_PORT}'
+        mattermost_external_url 'http://${EXTERNAL_HOSTNAME}:${MATTERMOST_PORT}'
+        registry_external_url 'http://${EXTERNAL_HOSTNAME}:${REGISTRY_PORT}'
         gitlab_rails['gitlab_shell_ssh_port'] = ${SSH_PORT}
         gitlab_rails['gitlab_email_enabled'] = false
         gitlab_rails['time_zone'] = 'Asia/Tokyo'
