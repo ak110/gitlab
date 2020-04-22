@@ -18,6 +18,21 @@
         --docker-privileged \
         --docker-image python:latest
 
+- `config/config.toml` を適宜修正。以下例。
+
+```toml
+concurrent = 4
+...
+[[runners]]
+  ...
+  environment = ["http_proxy=http://x.x.x.x:33128", "https_proxy=http://x.x.x.x:33128", "PIP_TRUSTED_HOST=x.x.x.x", "PIP_INDEX_URL=http://x.x.x.x:33141/root/pypi/"]
+  [runners.docker]
+    cache_dir = "/cache"
+    volumes = ["/data/gitlab-runner-data:/data:rw", "/data/gitlab-runner-cache:/cache:rw"]
+  ...
+
+```
+
 ## 起動
 
     docker-compose up -d
