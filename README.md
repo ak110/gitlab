@@ -27,3 +27,11 @@
     docker-compose exec gitlab bash
     su mattermost -c 'cd /opt/gitlab/embedded/service/mattermost; /opt/gitlab/embedded/bin/mattermost --config /var/opt/gitlab/mattermost/config.json plugin add /rssfeed-0.2.0.tar.gz'
 
+## バックアップ
+
+    docker-compose exec gitlab gitlab-rake gitlab:backup:create
+    docker-compose exec gitlab ls -l /var/opt/gitlab/backups
+
+## 最新タグの確認
+
+<https://hub.docker.com/r/gitlab/gitlab-ce/tags/>
