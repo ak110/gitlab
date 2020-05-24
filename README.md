@@ -20,6 +20,12 @@
 
     docker-compose down
 
+## GitLab Container RegistryのGC
+
+    docker-compose exec gitlab du -sh /var/opt/gitlab/gitlab-rails/shared/registry/
+    docker-compose exec gitlab gitlab-ctl registry-garbage-collect -m
+    docker-compose exec gitlab du -sh /var/opt/gitlab/gitlab-rails/shared/registry/
+
 ## mattermostプラグインインストール例
 
     wget https://github.com/wbernest/mattermost-plugin-rssfeed/releases/download/v0.2.0/rssfeed-0.2.0.tar.gz
