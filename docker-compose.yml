@@ -3,7 +3,7 @@ version: "3"
 services:
   gitlab:
     # https://hub.docker.com/r/gitlab/gitlab-ce/tags
-    image: gitlab/gitlab-ce:13.0.3-ce.0
+    image: gitlab/gitlab-ce:13.0.5-ce.0
     hostname: "${HOSTNAME}"
     restart: always
     volumes:
